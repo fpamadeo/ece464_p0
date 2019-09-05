@@ -1,25 +1,28 @@
-# c17
-# 5 inputs
-# 2 outputs
-# 0 inverter
-# 6 gates ( 6 NANDs )
+# 4-to-1 Multiplexer
+# 6 Inputs
+# 2 NOTs
+# 4 ANDs
+# 1 OR (4-1)
+# 1 OUTPUT
 
 # INPUTS:
-INPUT(a)
-INPUT(b)
-INPUT(c)
-INPUT(d)
-INPUT(e)
+INPUT(Ctrl1)
+INPUT(Ctrl2)
+INPUT(A)
+INPUT(B)
+INPUT(C)
+INPUT(D)
 
-# OUTPUTS:
-OUTPUT(j)
-OUTPUT(k)
+# OUTPUT/S:
+OUTPUT(OUT)
 
 # GATES:
-g = NAND(c, d)
-h = NAND(b, g)
-l = NOT(a)
-f = NAND(a, c)
-i = NAND(g, e)
-j = NAND(f, h)
-k = NAND(h, i)
+Ctrl1NOT = NOT(Ctrl1)
+Ctrl2NOT = NOT(Ctrl2)
+
+AND1 = AND(A, Ctrl2NOT, Ctrl1NOT)
+AND2 = AND(B, Ctrl2NOT, Ctrl1)
+AND3 = AND(C, Ctrl2, Ctrl1NOT)
+AND4 = AND(D, Ctrl2, Ctrl1)
+
+OUT = OR(AND1, AND2, AND3, AND4)

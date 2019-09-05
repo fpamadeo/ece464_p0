@@ -1,16 +1,22 @@
-# VALID OPTIONS:
-# 4 bits, with lower-case u
-1u01
+# INPUTS:
+# D, C, B, A, Ctrl1, Ctrl2
 
-#5 bits, with upper-case U's
-uu111
+# INPUT Vector 1:
+# A should be the one that is selected since the control bits are 00
+000100
 
-#8 bits, only 1's and 0's
-11001100
+# INPUT Vector 2:
+# B should be the one that is selected since the control bits are 01
+110101
 
-# INVALID OPTIONS:
-#  Using character's not 1's, 0's nor U's
-AAAAAAAA
-23452345
-10U13
-100A1
+# INPUT Vector 3:
+# C should be the one that is selected since the control bits are 10
+010010
+
+# INPUT Vector 4:
+# D should be the one that is selected since the control bits are 11
+011111
+
+# INPUT Vector 5:
+# The answer should be unknown since the selected bit is B (01)
+01U101
